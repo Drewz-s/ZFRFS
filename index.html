@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Заказать сайт | Профессиональное создание сайтов</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background: #f0f2f5;
+            color: #1a1a1a;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 0;
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            color: white;
+        }
+
+        .pricing-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .price {
+            font-size: 2.5em;
+            font-weight: bold;
+            margin: 20px 0;
+            color: #6366f1;
+        }
+
+        .features {
+            list-style: none;
+            margin: 20px 0;
+        }
+
+        .features li {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: opacity 0.3s;
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+        }
+
+        .description {
+            display: none;
+            margin-top: 20px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+
+        .order-form {
+            max-width: 500px;
+            margin: 40px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+
+        @media (max-width: 768px) {
+            .pricing-cards {
+                grid-template-columns: 1fr;
+            }
+            
+            .container {
+                padding: 10px;
+            }
+            
+            header h1 {
+                font-size: 1.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Создание сайтов под ключ</h1>
+            <p>Получите современный сайт уже через 3 дня!</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="pricing-cards">
+            <div class="card">
+                <h2>Базовый</h2>
+                <div class="price">599₽</div>
+                <ul class="features">
+                    <li>1 страница</li>
+                    <li>Адаптивный дизайн</li>
+                    <li>Контент на 1 день</li>
+                </ul>
+                <button class="btn" onclick="toggleDescription(1)">Подробнее</button>
+                <div class="description" id="desc1">
+                    <p>Идеально для старта бизнеса. Включает:</p>
+                    <ul>
+                        <li>Доменное имя на 1 год</li>
+                        <li>Хостинг на 1 месяц</li>
+                        <li>Базовое SEO</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Продвинутый</h2>
+                <div class="price">899₽</div>
+                <ul class="features">
+                    <li>До 5 страниц</li>
+                    <li>Индивидуальный дизайн</li>
+                    <li>SEO оптимизация</li>
+                </ul>
+                <button class="btn" onclick="toggleDescription(2)">Подробнее</button>
+                <div class="description" id="desc2">
+                    <p>Полный пакет для бизнеса:</p>
+                    <ul>
+                        <li>CMS система</li>
+                        <li>Контент-менеджмент</li>
+                        <li>Аналитика</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Премиум</h2>
+                <div class="price">2999₽</div>
+                <ul class="features">
+                    <li>Неограниченные страницы</li>
+                    <li>Эксклюзивный дизайн</li>
+                    <li>Поддержка 24/7</li>
+                </ul>
+                <button class="btn" onclick="toggleDescription(3)">Подробнее</button>
+                <div class="description" id="desc3">
+                    <p>Премиум решение:</p>
+                    <ul>
+                        <li>Интеграция с CRM</li>
+                        <li>Мультиязычность</li>
+                        <li>Личный менеджер</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="order-form">
+            <h2>Оформить заказ</h2>
+            <form id="orderForm">
+                <input type="text" placeholder="Ваше имя" required>
+                <input type="text" placeholder="Ваш Telegram @username" required>
+                <select id="package">
+                    <option value="600">Базовый - 599₽</option>
+                    <option value="899">Продвинутый - 899₽</option>
+                    <option value="2999">Премиум - 2999₽</option>
+                </select>
+                <textarea placeholder="Дополнительные пожелания" rows="4"></textarea>
+                <button class="btn" type="submit">Отправить заявку</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function toggleDescription(cardNumber) {
+            const desc = document.getElementById(`desc${cardNumber}`);
+            desc.style.display = desc.style.display === 'block' ? 'none' : 'block';
+        }
+
+        document.getElementById('orderForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = {
+                name: this.querySelector('input[type="text"]').value,
+                telegram: this.querySelectorAll('input[type="text"]')[1].value,
+                package: this.querySelector('#package').value,
+                message: this.querySelector('textarea').value
+            };
+
+            // Отправка в Telegram бота
+            const botToken = '7996990238:AAEKAnAsnkl57ktvUmYMioEHRIHas55hnXY';
+            const chatId = '1514979458';
+            const text = `Новый заказ!\nИмя: ${formData.name}\nTelegram: @${formData.telegram}\nТариф: ${formData.package}₽\nСообщение: ${formData.message}`;
+            
+            fetch(`https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(text)}`);
+            
+            alert('Заявка отправлена! Мы свяжемся с вами в Telegram.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
